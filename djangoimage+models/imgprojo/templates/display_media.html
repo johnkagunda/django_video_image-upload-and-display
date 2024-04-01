@@ -1,0 +1,23 @@
+<!-- display_media.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media List</title>
+</head>
+<body>
+    <h2>Uploaded Media</h2>
+    {% for item in media %}
+        <h3>{{ item.title }}</h3>
+        {% if item.image %}
+            <img src="{{ item.image.url }}" alt="{{ item.title }}" width="300">
+        {% endif %}
+        {% if item.video %}
+            <video width="320" height="240" controls>
+                <source src="{{ item.video.url }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
